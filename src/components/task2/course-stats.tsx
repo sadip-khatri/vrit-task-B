@@ -27,14 +27,26 @@ const EASE_BACK = "duration-1000 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]";
 function ArrowRight() {
   return (
     <svg viewBox="0 0 20 20" className="size-5" fill="none" aria-hidden>
-      <path d="M3.5 10h13M11 4.5l5.5 5.5-5.5 5.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M3.5 10h13M11 4.5l5.5 5.5-5.5 5.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function Plus({ className }: { className: string }) {
   return (
-    <span aria-hidden className={cn("absolute font-nohemi text-[64px] leading-[76.8px] font-bold", className)}>
+    <span
+      aria-hidden
+      className={cn(
+        "absolute font-nohemi text-[64px] leading-[76.8px] font-bold",
+        className,
+      )}
+    >
       +
     </span>
   );
@@ -63,8 +75,13 @@ function ExpandedContent({ stat }: { stat: CourseStat }) {
             <Plus className="top-[-8px] left-[calc(100%-13px)] text-white" />
           </p>
           <div className="flex flex-col gap-3 text-t2-blush">
-            <h3 className="font-outfit text-[32px] leading-[40.3px] font-bold whitespace-nowrap">{stat.title}</h3>
-            <p className="font-outfit text-lg leading-[22.7px]" style={{ width: stat.descriptionWidth }}>
+            <h3 className="font-outfit text-[32px] leading-[40.3px] font-bold whitespace-nowrap">
+              {stat.title}
+            </h3>
+            <p
+              className="font-outfit text-lg leading-[22.7px]"
+              style={{ width: stat.descriptionWidth }}
+            >
               {stat.description}
             </p>
           </div>
@@ -75,7 +92,15 @@ function ExpandedContent({ stat }: { stat: CourseStat }) {
       <div className="flex h-full flex-col justify-end gap-8 p-6 pt-20 sm:p-10 sm:pt-24 xl:hidden">
         <div className="flex items-center gap-4 sm:gap-8">
           {ICONS.map((icon) => (
-            <Image key={icon.src} src={icon.src} alt="" width={icon.width} height={icon.height} unoptimized className="h-12 w-auto sm:h-16" />
+            <Image
+              key={icon.src}
+              src={icon.src}
+              alt=""
+              width={icon.width}
+              height={icon.height}
+              unoptimized
+              className="h-12 w-auto sm:h-16"
+            />
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-t2-blush">
@@ -84,8 +109,12 @@ function ExpandedContent({ stat }: { stat: CourseStat }) {
             <Plus className="-top-3 left-[calc(100%-6px)] text-[44px] leading-none text-white" />
           </p>
           <div className="flex flex-col gap-2 pl-4">
-            <h3 className="font-outfit text-2xl leading-tight font-bold sm:text-[32px]">{stat.title}</h3>
-            <p className="max-w-[260px] font-outfit text-base leading-snug sm:text-lg">{stat.description}</p>
+            <h3 className="font-outfit text-2xl leading-tight font-bold sm:text-[32px]">
+              {stat.title}
+            </h3>
+            <p className="max-w-[260px] font-outfit text-base leading-snug sm:text-lg">
+              {stat.description}
+            </p>
           </div>
         </div>
       </div>
@@ -101,8 +130,12 @@ function CollapsedContent({ stat }: { stat: CourseStat }) {
         {/* A horizontal 218 × 138 block rotated -90° into a 138 × 218 slot (vertical writing-mode mangles punctuation). */}
         <div className="relative h-[218px] w-[138px] shrink-0">
           <div className="absolute top-1/2 left-1/2 flex h-[138px] w-[218px] -translate-x-1/2 -translate-y-1/2 -rotate-90 flex-col gap-3">
-            <h3 className="font-outfit text-[32px] leading-[40.3px] font-bold">{stat.title}</h3>
-            <p className="font-outfit text-lg leading-[22.7px]">{stat.description}</p>
+            <h3 className="font-outfit text-[32px] leading-[40.3px] font-bold">
+              {stat.title}
+            </h3>
+            <p className="font-outfit text-lg leading-[22.7px]">
+              {stat.description}
+            </p>
           </div>
         </div>
         <p className="relative font-nohemi text-[150px] leading-[180px] font-bold">
@@ -114,8 +147,12 @@ function CollapsedContent({ stat }: { stat: CourseStat }) {
       {/* Tablet / mobile: horizontal summary row. */}
       <div className="flex h-full items-center justify-between gap-4 px-6 text-t2-crimson sm:px-10 xl:hidden">
         <div className="min-w-0">
-          <h3 className="font-outfit text-xl leading-tight font-bold sm:text-2xl">{stat.title}</h3>
-          <p className="mt-1 font-outfit text-sm leading-snug sm:text-base">{stat.description}</p>
+          <h3 className="font-outfit text-xl leading-tight font-bold sm:text-2xl">
+            {stat.title}
+          </h3>
+          <p className="mt-1 font-outfit text-sm leading-snug sm:text-base">
+            {stat.description}
+          </p>
         </div>
         <p className="relative shrink-0 pr-5 font-nohemi text-[64px] leading-none font-bold sm:text-[80px]">
           {stat.count}
@@ -138,7 +175,9 @@ function StatCard({ stat, active, onSelect }: StatCardProps) {
       className={cn(
         "group/card relative transition-[height,flex-grow]",
         EASE_BACK,
-        active ? "h-[400px] xl:flex-[592_1_0%]" : "h-[150px] sm:h-[170px] xl:flex-[280_1_0%]",
+        active
+          ? "h-[400px] xl:flex-[592_1_0%]"
+          : "h-[150px] sm:h-[170px] xl:flex-[280_1_0%]",
         "xl:h-[461px]",
       )}
     >
@@ -178,7 +217,9 @@ function StatCard({ stat, active, onSelect }: StatCardProps) {
           aria-hidden={!active}
           className={cn(
             "absolute inset-0 transition-opacity",
-            active ? "opacity-100 delay-500 duration-500" : "pointer-events-none opacity-0 duration-200",
+            active
+              ? "opacity-100 delay-500 duration-500"
+              : "pointer-events-none opacity-0 duration-200",
           )}
         >
           <ExpandedContent stat={stat} />
@@ -188,7 +229,9 @@ function StatCard({ stat, active, onSelect }: StatCardProps) {
           aria-hidden={active}
           className={cn(
             "absolute inset-0 transition-opacity",
-            active ? "pointer-events-none opacity-0 duration-200" : "opacity-100 delay-500 duration-500",
+            active
+              ? "pointer-events-none opacity-0 duration-200"
+              : "opacity-100 delay-500 duration-500",
           )}
         >
           <CollapsedContent stat={stat} />
@@ -199,7 +242,10 @@ function StatCard({ stat, active, onSelect }: StatCardProps) {
           onClick={onSelect}
           aria-pressed={active}
           aria-label={`${stat.count}+ ${stat.title}`}
-          className={cn("absolute inset-0 z-10 rounded-[32px] focus-visible:outline-offset-4", active ? "cursor-default" : "cursor-pointer")}
+          className={cn(
+            "absolute inset-0 z-10 rounded-[32px] focus-visible:outline-offset-4",
+            active ? "cursor-default" : "cursor-pointer",
+          )}
         />
 
         {active && (
@@ -217,13 +263,24 @@ function StatCard({ stat, active, onSelect }: StatCardProps) {
 }
 
 /** Figma component "stats": one expanded card, the rest collapsed; clicking swaps them. */
-export function CourseStats({ stats, defaultActiveId }: { stats: readonly CourseStat[]; defaultActiveId?: string }) {
+export function CourseStats({
+  stats,
+  defaultActiveId,
+}: {
+  stats: readonly CourseStat[];
+  defaultActiveId?: string;
+}) {
   const [activeId, setActiveId] = useState(defaultActiveId ?? stats[0]?.id);
 
   return (
     <ul className="flex flex-col gap-5 xl:flex-row xl:gap-8">
       {stats.map((stat) => (
-        <StatCard key={stat.id} stat={stat} active={stat.id === activeId} onSelect={() => setActiveId(stat.id)} />
+        <StatCard
+          key={stat.id}
+          stat={stat}
+          active={stat.id === activeId}
+          onSelect={() => setActiveId(stat.id)}
+        />
       ))}
     </ul>
   );

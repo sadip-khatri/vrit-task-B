@@ -18,6 +18,6 @@ npm run dev
 - Unexpected errors fall through to `error.tsx` boundaries.
 - `loading.tsx` skeletons are shown while server data streams in.
 
-## Task 2 — Figma UI (`/task2`)
+## Task 2 — Figma UI
 
-A responsive implementation of the provided Figma design, served at [`/task2`](http://localhost:3000/task2) without the store's header and footer. The store pages live in the `(store)` route group so the two layouts stay separate.
+A standalone responsive implementation of the provided Figma design, served at the project root (`http://localhost:3000`).
